@@ -6,16 +6,15 @@ import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CourseFormComponent } from '../course-form/course-form.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { CourseDetailesComponent } from "../course-detailes/course-detailes.component";
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 
 
 @Component({
   selector: 'app-course',
   standalone: true,
-  imports: [AsyncPipe, FormsModule, CourseFormComponent, RouterOutlet, RouterLinkActive, RouterLink, CourseDetailesComponent,
+  imports: [AsyncPipe, FormsModule, RouterOutlet, RouterLinkActive, RouterLink,
     MatCardModule, MatListModule, MatDialogModule
   ],
   templateUrl: './course.component.html',

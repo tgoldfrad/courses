@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import { Course } from '../../models/course';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CourseService } from '../../services/course.service';
-import { ActivatedRoute, Params, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute,  Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-course-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterOutlet, MatInputModule, MatFormFieldModule, MatButtonModule, MatDialogModule],
+  imports: [ReactiveFormsModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatDialogModule],
   templateUrl: './course-form.component.html',
   styleUrl: './course-form.component.css'
 })

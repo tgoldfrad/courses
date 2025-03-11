@@ -41,7 +41,7 @@ export class LessonFormComponent {
       if (this.currentLesson) {
       this.lessonService.updateLesson(this.currentLesson.courseId, this.currentLesson.id, this.addLessonForm.value).subscribe({
         next: () => {
-          this.router.navigate(['/courses']),
+          
           this.dialogRef.close(true);
 
         },
@@ -50,7 +50,7 @@ export class LessonFormComponent {
     } else {
       this.lessonService.addLesson(this.addLessonForm.value.courseId, this.addLessonForm.value).subscribe({
         next: () => {
-          this.router.navigate(['/courses']),
+          
           this.dialogRef.close(true);
 
         },

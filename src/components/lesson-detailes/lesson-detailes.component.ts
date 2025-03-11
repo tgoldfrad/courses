@@ -1,13 +1,14 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Lesson } from '../../models/lesson';
-import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { LessonService } from '../../services/lesson.service';
 import { MatCardModule } from '@angular/material/card';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-lesson-detailes',
   standalone: true,
-  imports: [RouterOutlet,MatCardModule],
+  imports: [MatCardModule],
   templateUrl: './lesson-detailes.component.html',
   styleUrl: './lesson-detailes.component.css'
 })
@@ -39,9 +40,18 @@ if(this.cId&&this.lId) {
   console.error('course or lesson ID not found');
 }
 
-  
+this.router.events
+.pipe(filter(event => event instanceof NavigationEnd))
+.subscribe((event: NavigationEnd) => {
+  console.log('URL changed to: ', event.url);
+  this.handleUrlChange(event.url);
+});
   }
+  handleUrlChange(newUrl: string) {
 
+    this.ngOnInit();
+    console.log('Doing something with the new URL: ', newUrl);
+  }
 }
 
 

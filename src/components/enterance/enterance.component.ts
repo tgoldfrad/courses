@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SignInComponent } from '../sign-in/sign-in.component';
-import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 import { CourseComponent } from '../course/course.component';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-enterance',
   standalone: true,
-  imports: [MatDialogModule,MatButton,CourseComponent],
+  imports: [MatDialogModule,MatButton],
   templateUrl: './enterance.component.html',
   styleUrl: './enterance.component.css'
 })
