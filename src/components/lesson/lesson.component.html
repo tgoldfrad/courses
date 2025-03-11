@@ -1,0 +1,38 @@
+
+<div>
+
+        <mat-card-title>lessons list</mat-card-title>
+
+        <mat-list>
+            @for(lesson of (lessons$ | async);track lesson.id){
+                <div class="my-list-item">
+                    <div class="buttons-container">
+                    <nav>
+                        <a mat-button [routerLink]="[{ outlets: { lesson: ['lessons', lesson.id] } }]" routerLinkActive="buttonactive" class="no-underline">{{ lesson.title }}</a>
+                    </nav>
+                    </div>
+                @if(isTeacher){
+                    <div class="buttons-container">
+                    <ng-container>
+                        <button mat-button class="custom-button" (click)="editLesson(lesson)">Edit</button>
+                        <button mat-button class="custom-button" (click)="deleteLesson(lesson.id)">Delete</button>
+                    </ng-container>
+                    </div>
+                }
+            </div>
+        }
+        @empty{
+            <div>אנחנו עובדים בשבילך</div>
+        }
+        </mat-list>
+        @if(isTeacher){
+            <ng-container>
+                <button mat-raised-button color="primary" class="custom-button" (click)="showForm()" >Add Lesson</button>
+            </ng-container>
+        }
+
+    <div>
+        <router-outlet name="lesson"></router-outlet>
+    </div>
+
+</div>

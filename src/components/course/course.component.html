@@ -1,0 +1,52 @@
+
+<div class="container">
+    <div class="sidebar">
+        
+        <mat-card class="custom-card">
+            <mat-card-header>
+                <mat-card-title>courses list</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    @for(course of (courses$ | async); track course.id) {
+                        <div class="my-list-item">
+                    <div class="my-link">
+                        <a mat-button [routerLink]="[{ outlets: { course: [course.id] } }]"
+                            routerLinkActive="buttonactive" class="no-underline">{{ course.title }}</a>
+                        </div>
+                            <div class="buttons-container">
+                        @if(isTeacher) {
+                        <ng-container>
+                            <button mat-button color="primary" class="custom-button" (click)="editCourse(course)">Edit</button>
+                            <button mat-button color="primary" class="custom-button" (click)="deleteCourse(course.id)">Delete</button>
+                        </ng-container>
+                        }
+                        @if(isJoin(course)) {
+                        <ng-container>
+                            <button mat-button color="primary" class="custom-button" (click)="leaveCourse(course)">Leave course</button>
+                        </ng-container>
+                        } @else {
+                        <ng-container>
+                            <button mat-button color="primary" class="custom-button" (click)="joinCourse(course)">Join course</button>
+                        </ng-container>
+                        }
+                    </div>
+                   </div>
+                    }
+                    @empty {
+                    <div>אנחנו עובדים בשבילך</div>
+                    }
+                </mat-list>
+                @if(isTeacher) {
+                <ng-container>
+                    <button mat-raised-button color="primary" (click)="showForm()" class="custom-button">Add course</button>
+                </ng-container>
+                }
+            </mat-card-content>
+        </mat-card>
+    
+    </div>
+</div>
+<div class="main-content">
+    <router-outlet name="course"></router-outlet>
+</div>

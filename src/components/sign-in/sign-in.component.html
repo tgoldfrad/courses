@@ -1,0 +1,30 @@
+
+<mat-dialog-content>
+    <form [formGroup]="addUserForm" (ngSubmit)="signIn()">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+        
+        @if(addUserForm.get('email')?.touched && addUserForm.get('email')?.invalid)
+        {
+            <mat-error >
+            Email is required and must be valid.
+            </mat-error>
+        }
+      
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" type="password">
+        @if(addUserForm.get('password')?.touched && addUserForm.get('password')?.invalid)
+        {
+            <mat-error >
+                Password is required and must be at least 4 characters long.
+            </mat-error>
+        }
+      </mat-form-field>
+  
+      <button mat-raised-button class="submit-button" type="submit" [disabled]="addUserForm.invalid">Sign In</button>
+    </form>
+  </mat-dialog-content>

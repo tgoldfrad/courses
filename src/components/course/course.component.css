@@ -1,0 +1,24 @@
+
+.container {
+    display: inline-block;
+    width: 47%;
+}
+
+.sidebar {
+    width: 340; 
+    background-color: #f0f0f0; 
+    padding: 10px;
+    
+}
+
+.main-content {
+    display: inline-block;
+    width: 49%;
+    flex-grow: 1;
+    padding: 10px; 
+}
+
+.my-list-item{
+    display: flex;
+    justify-content: space-between;
+}

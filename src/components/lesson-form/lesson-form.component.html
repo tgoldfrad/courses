@@ -1,0 +1,37 @@
+<mat-dialog-content>
+    <form [formGroup]="addLessonForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" formControlName="title">
+            @if(!addLessonForm.get('title')?.valid && addLessonForm.get('title')?.touched)
+            {
+            <mat-error>
+                Title is required.
+            </mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Content</mat-label>
+            <input matInput type="text" formControlName="content">
+            @if(!addLessonForm.get('content')?.valid && addLessonForm.get('content')?.touched){
+            <mat-error>
+                Content is required.
+            </mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Course ID</mat-label>
+            <input matInput type="number" formControlName="courseId">
+            @if(!addLessonForm.get('courseId')?.valid && addLessonForm.get('courseId')?.touched){
+            <mat-error>
+                Course ID is required.
+            </mat-error>
+            }
+        </mat-form-field>
+
+        <button mat-raised-button class="submit-button" type="submit" [disabled]="!addLessonForm.valid">Submit</button>
+    </form>
+</mat-dialog-content>
